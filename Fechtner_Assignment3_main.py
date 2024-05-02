@@ -11,7 +11,7 @@ print("Preloading questions\n")
 existing_content = []
 
 # Load questions
-with open('questions.txt', mode='r') as csv_file:
+with open('questions.csv', mode='r') as csv_file:
     csv_reader = csv.DictReader(csv_file, delimiter=',')
     for row in csv_reader:
         existing_content.append(row)
@@ -72,7 +72,7 @@ new_question = input("Enter a question: ")
 new_question_row = {"question_id": str(question_id), "question": new_question}
 existing_content.append(new_question_row)
 
-with open('questions.txt', mode='a', newline='') as question_file:
+with open('questions.csv', mode='a', newline='') as question_file:
     fieldnames = ["question_id", "question"]
     question_writer = csv.DictWriter(question_file, fieldnames=fieldnames, delimiter=',', quotechar='"',
                                      quoting=csv.QUOTE_MINIMAL)
@@ -85,7 +85,7 @@ print("New question written to questions.txt\n")
 
 #open questions.txt
 questions = []
-with open('questions.txt', mode='r') as csv_file:
+with open('questions.csv', mode='r') as csv_file:
     csv_reader = csv.DictReader(csv_file, delimiter=',')
     for row in csv_reader:
         questions.append(row)
